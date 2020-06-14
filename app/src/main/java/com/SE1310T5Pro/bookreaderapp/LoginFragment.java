@@ -1,5 +1,6 @@
 package com.SE1310T5Pro.bookreaderapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.SE1310T5Pro.bookreaderapp.API.LoginService.LoginAPI;
+import com.SE1310T5Pro.bookreaderapp.API.LoginService.LognAPI;
 import com.SE1310T5Pro.bookreaderapp.API.Model.User;
 import com.SE1310T5Pro.bookreaderapp.API.Retrofit.RetrofitConfig;
 
@@ -25,7 +26,7 @@ public class LoginFragment extends Fragment {
     LoginFragment(){
 
     }
-
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,21 +39,21 @@ public class LoginFragment extends Fragment {
 
         final EditText username = v.findViewById(R.id.user_id);
         final EditText password = v.findViewById(R.id.password_id);
-        Button btn = v.findViewById(R.id.login_btn);
-
+        final Button btn = v.findViewById(R.id.login_btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                LoginAPI login = RetrofitConfig.getRetrofitInstance().create(LoginAPI.class);
-                String x = username.getText().toString();
-                String y = password.getText().toString();
-                Call<User> call_user = login.checkLogin(x, y);
+            public void onClick(final View v) {
+                LognAPI login = RetrofitConfig.getRetrofitInstance().create(LognAPI.class);
+                String getUsername = username.getText().toString();
+                String getPassword = password.getText().toString();
+                Call<User> call_user = login.checkLogin(getUsername, getPassword);
                 call_user.enqueue(new Callback<User>() {
+                    @SuppressLint("RestrictedApi")
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
                         if(response.isSuccessful()){
-                            TextView sucess_login = getActivity().findViewById(R.id.fail_id_login);
-                            sucess_login.setText("Successful");
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_frame, new HomeFragment()).commit();
+
                         }
                     }
 
@@ -66,4 +67,5 @@ public class LoginFragment extends Fragment {
         });
         return v;
     }
+
 }

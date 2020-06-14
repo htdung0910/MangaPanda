@@ -10,19 +10,14 @@ public class User {
     @SerializedName("password")
     private String password;
     @SerializedName("isAdmin")
-    private int isAdmin;
+    private String isAdmin;
 
 
     public User(){
 
     }
 
-    public User(String username,String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public User(String username, String fullname, String password, int isAdmin) {
+    public User(String username, String fullname, String password, String isAdmin) {
         this.username = username;
         this.fullname = fullname;
         this.password = password;
@@ -43,21 +38,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getFullname() {
-        return fullname;
-    }
-
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
-
-    public int getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(int isAdmin) {
-        this.isAdmin = isAdmin;
     }
 }

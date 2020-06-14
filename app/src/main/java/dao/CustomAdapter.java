@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.SE1310T5Pro.bookreaderapp.R;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,7 +38,22 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         holder.itemTitle.setText(items.get(position).getTitle());
-        holder.itemImage.setImageResource(items.get(position).getImage());
+        Picasso.get().setLoggingEnabled(true);
+        Picasso.get()
+                .load(items.get(position).getImage())
+                .memoryPolicy(MemoryPolicy.NO_CACHE)
+                .into(holder.itemImage, new com.squareup.picasso.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        //do smth when picture is loaded successfully
+
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        e.printStackTrace();
+                    }
+                });
     }
 
     @Override
@@ -49,10 +66,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         private ImageView itemImage;
         private TextView itemTitle;
 
+
         public CustomViewHolder(View view) {
             super(view);
-            itemImage = view.findViewById(R.id.image);
-            itemTitle = view.findViewById(R.id.title);
+            itemImage = view.findViewById(R.id.imgLoad);
+            itemTitle = view.findViewById(R.id.imgDesc);
         }
     }
 }

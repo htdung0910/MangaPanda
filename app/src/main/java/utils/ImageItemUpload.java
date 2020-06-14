@@ -1,18 +1,18 @@
 package utils;
 
 public class ImageItemUpload {
-    private int image;
+    private String image;
     private String title;
 
     public ImageItemUpload() {
     }
 
-    public ImageItemUpload(int image, String title) {
+    public ImageItemUpload(String image, String title) {
         this.image = image;
         this.title = title;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 

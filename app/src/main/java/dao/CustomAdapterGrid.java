@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.SE1310T5Pro.bookreaderapp.R;
@@ -69,7 +68,7 @@ public class CustomAdapterGrid extends BaseAdapter  {
             convertView = LayoutInflater.from(context).inflate(layout_id, parent, false);
             holder = new CustomViewHolderGrid(convertView);
             holder.itemTitle.setText(items.get(position).getTitle());
-            holder.itemImage.setImageResource(items.get(position).getImage());
+//            holder.itemImage.setImageResource(items.get(position).getImage());
         } else {
             holder = (CustomViewHolderGrid) convertView.getTag();
         }
@@ -83,8 +82,8 @@ public class CustomAdapterGrid extends BaseAdapter  {
 
         public CustomViewHolderGrid(View view) {
             super(view);
-            itemImage = view.findViewById(R.id.image);
-            itemTitle = view.findViewById(R.id.title);
+            itemImage = view.findViewById(R.id.imgLoad);
+            itemTitle = view.findViewById(R.id.imgDesc);
         }
     }
 }

@@ -41,7 +41,7 @@ public class CustomAdapterList extends ArrayAdapter<ImageItemUpload> {
         ImageItemUpload item_current = items.get(position);
 
         ImageView view = convertView.findViewById(R.id.item);
-        view.setImageResource(item_current.getImage());
+//        view.setImageResource(item_current.getImage());
         TextView text = convertView.findViewById(R.id.item_text);
         text.setText(item_current.getTitle());
         return convertView;
