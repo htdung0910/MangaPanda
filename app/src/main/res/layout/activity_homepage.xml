@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomepageActivity">
+    <com.synnapps.carouselview.CarouselView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:pageColor="#ffff"
+        app:fillColor="#ffff"
+        app:slideInterval="5000"
+        app:radius="3dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="#ff777777"
+        app:autoPlay="true"
+        android:id="@+id/slider"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="66dp">
+
+    <Button
+
+        android:background="#4CAF50"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="BUTTON 1"
+        android:textSize="10sp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="5dp"/>
+    <Button
+
+        android:background="#4CAF50"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="BUTTON 1"
+        android:textSize="10sp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="5dp"/>
+    <Button
+
+        android:background="#4CAF50"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="BUTTON 1"
+        android:textSize="10sp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="5dp"/>
+    <Button
+
+        android:background="#4CAF50"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="BUTTON 1"
+        android:textSize="10sp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="5dp"/>
+    </LinearLayout>
+
+</LinearLayout>
